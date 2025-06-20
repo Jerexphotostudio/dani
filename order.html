@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AJ Magic Funiture</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0e7dec;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #089e2d;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: rgb(229, 233, 8);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem;
+      width: 100%;
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #response-msg {
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      padding: 1rem;
+      background-color: #ecf0f1;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AJ Magic Furniture </h1>
+    <p>Order your Furniture Now</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="order.html">Order</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2>Place Your Order/Jaza oda yako</h2>
+    <form id="order-form" action="https://" method="POST">
+      <label for="name">Full Name/Jina kamili</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="email">Email Address/Barua pepe</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="phone">Phone Number (WhatsApp)/Nambali ya simu</label>
+      <input type="tel" name="phone" id="phone" required>
+
+      <label for="product">Select Product/Chagua bidhaa</label>
+      <select name="product" id="product" required>
+        <option value="">-- Chagua hapa --</option>
+        <option>meza</option>
+        <option>Viti</option>
+        <option>Kabati</option>
+        <option>Vitanda</option>
+        <option>show case</option>
+        <option>Madilisha</option>
+        <option>Milango</option>
+        <option>Makochi/sofa </option>
+        <option>Standi kwa aina zake</option>
+      </select>
+
+      <label for="message">Additional Notes</label>
+      <textarea name="message" id="message" rows="4" placeholder="e.g., Color, Quantity, Delivery instructions"></textarea>
+
+      <button type="submit" id="submit-btn">Submit Order/Tuma oda</button>
+      <div id="response-msg"></div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Auncle Jerex Funiture. All rights reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById("order-form");
+    const msg = document.getElementById("response-msg");
+    const btn = document.getElementById("submit-btn");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      const data = new FormData(form);
+
+      const res = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        msg.textContent = "✅ Asante oda yako imetumwa. Tunakupigia hivi punde kwa mawasilino zaidi.";
+        msg.style.color = "green";
+        form.reset();
+      } else {
+        msg.textContent = "❌ Imeshindwa kutuma . tafadhari jaribu tena .";
+        msg.style.color = "red";
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Tuma oda yako";
+    });
+  </script>
+
+</body>
+</html>

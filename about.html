@@ -1,0 +1,145 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kuhusu sisi AJ Magic Furniture</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgb(40, 14, 185);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: rgb(14, 212, 47);
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    .about-container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      border-radius: 10px;
+    }
+
+    .about-container h2 {
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .about-container p, ul {
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AJ Magic furniture </h1>
+    <p>Your Home for good and affordable funiture</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="order.html">Order</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html" style="background-color: #444;">About</a>
+  </nav>
+
+  <div class="about-container">
+    <h2></h2>
+    <p>Welcome to <strong>AJ Magic Funiture</strong>Chaguo lako la kwanza la wapi unaweza kupata bidhaa bora aina ya samani za ndani na nje ya nyumba yako ni AJ Magic Funiture.</p>
+    <p>Tunahusika na kutengeneza furniture aina zote na kitu kizuri kuliko zinakuwa na ubunifu wa hali ya juu kwa ajili ya kuendana na ushindani uliopo na pia sisi tuna fanya kazi katika mazingira ya just in time yaa
+      yaani pale unapo weka oda ili kupunguza gapu kati bidhaa mteja anavyotaka itengenezwe na namna bidhaa zinavyo tengenezwa ,Tutakupatia ushauri mzuri kuendana na hitaji lako mpenzi mteja ondoa shaka .</p>
+    <p>Baadhi ya samani  tunazo zitengeneza ni kama vile:</p>
+    <ul>
+      <li>Meza</li>
+      <li>Vitanda</li>
+      <li>Viti</li>
+      <li>Kabati</li>
+      <li>Show case</li>
+      <li>Tunadezaini za droo na n.k</li>
+    </ul>
+
+    <div class="section" id="mission">
+      <h2>Our Mission</h2>
+      <p>To reduce the gap between customer and designer for producing, quality, and innovative good as per customer's wishes — delivering on time , after service program, and reliability in every purchase.</p>
+    </div>
+
+    <div class="section" id="vision">
+      <h2>Our Vision</h2>
+      <p>To become the unstoperble work shop in East Africa, setting new standards in product quality, accessibility, and customer care.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2025 Auncle Jerex trust no body. All rights reserved.</p>
+  </div>
+
+  <!-- JS for fade-in on scroll -->
+  <script>
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
